@@ -23,7 +23,7 @@ from base64 import b64encode
 import io
 
 # Sample data preparation - replace this with your actual data loading
-df_ipeds = pd.read_csv('F:\\Shivansh Gupta\\OneDrive\\OneDrive - Indian School of Business\\MeToo Project\\Jupyter Code Files\\RMP Data Files\\RMP Data Files\\IPEDS_Quality_Metrics1.csv', low_memory = False)
+df_ipeds = pd.read_csv('IPEDS_Quality_Metrics1.csv', low_memory = False)
 df_ipeds['Owner'] = df_ipeds['Owner'].replace({'PrivateP': 'Private', 'PrivateNP': 'Private'})
 df_ipeds_agg = df_ipeds.groupby(['Year', 'Owner', 'State_Category'])[['AllSalary_Total', 'AllSalary_Male', 'AllSalary_Female', 'ProfSalary_Total', 'ProfSalary_Male', 'ProfSalary_Female', 'Asc_ProfSalary_Total', 'Asc_ProfSalary_Male', 'Asc_ProfSalary_Female', 'Ast_ProfSalary_Total', 'Ast_ProfSalary_Female', 'Ast_ProfSalary_Male']].mean().reset_index()
 # Melt DataFrame to have a 'Gender' column instead of separate salary columns
